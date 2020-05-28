@@ -23,14 +23,14 @@ namespace EtchaSketch
             InitializeComponent();
         }
 
-        private void Form1_Paint(object sender, PaintEventArgs e)
+        private void drawGraphic(object sender, PaintEventArgs e)
         {
             Graphics g = Graphics.FromImage(bm);
             g.FillEllipse(brush, x, y, circleX, circleY);
             Refresh();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void loadForm(object sender, EventArgs e)
         { 
             bm = new Bitmap(this.Width, this.Height);   // create a form-size bitmap
             Graphics g = Graphics.FromImage(bm);        // get a graphic object for the bitmap
@@ -73,7 +73,7 @@ namespace EtchaSketch
             }
             else if (input == "B")
             {
-                if (circleX > 50 || circleY > 50)
+                if (circleX > 50 || circleY > 50) //this if statement makes sure the boundaries do not exceed 50.
                 {
                     circleX = 50;
                     circleY = 50;
@@ -86,11 +86,11 @@ namespace EtchaSketch
             }
             else if (input == "S")
             {
-                if (circleX < 5 || circleY < 5)
+                if (circleX < 5 || circleY < 5) //this if statement makes sure the boundaries do not exceed 5.
                 {
                     circleX = 5;
                     circleY = 5;
-                }
+                }  
                 else
                 {
                     circleX -= 5;
@@ -99,32 +99,32 @@ namespace EtchaSketch
             }
             else if (input == "F1")
             {
-                colour = Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256));
-                brush = new SolidBrush(colour);
+                colour = Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)); //sets the colour variable to a random colour
+                brush = new SolidBrush(colour); //sets the brush for the ellipse to the colour of the colour variable
             }
             else if (input == "Q")
             {
-                y -= 10;
+                y -= 10;  //draws in an up-left direction
                 x -= 10;
             }
             else if (input == "W")
             {
-                y -= 10;
+                y -= 10;  //draws in an up-right direction
                 x += 10;
             }
             else if (input == "O")
             {
-                y += 10;
+                y += 10;  //draws in an down-left direction
                 x -= 10;
             }
             else if (input == "P")
             {
-                y += 10;
+                y += 10;  //draws in an down-right direction
                 x += 10;
             }
             else if(input == "F2")
             {
-                this.BackColor = Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256));
+                this.BackColor = Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256)); //sets the background colour to a random colour.
             }
 
             return false;    // return true if key processed, otherwise false

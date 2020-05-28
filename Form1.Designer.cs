@@ -39,8 +39,8 @@ namespace EtchaSketch
             this.Name = "Form1";
             this.Text = "EtchaSketch";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.Load += new System.EventHandler(this.loadForm);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.drawGraphic);
             this.ResumeLayout(false);
 
         }
